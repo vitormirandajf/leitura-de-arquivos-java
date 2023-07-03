@@ -7,12 +7,9 @@ import java.io.IOException;
 public class Main {
     public static void main(String[] args) {
         String path = "c:\\temp\\test.txt";
-        FileReader fr = null;
-        BufferedReader br = null;
 
-        try {
-            fr = new FileReader(path);
-            br = new BufferedReader(fr);
+
+        try (BufferedReader br = new BufferedReader(new FileReader(path))) {
 
             String line = br.readLine();
 
@@ -23,17 +20,6 @@ public class Main {
 
         }catch (IOException e) {
             System.out.println("Erro: "+ e.getMessage());
-        }finally {
-            try {
-                if (br != null) {
-                    br.close();
-                }
-                if (fr != null) {
-                    fr.close();
-                }
-            }catch (IOException e) {
-                e.printStackTrace();
-            }
         }
 
     }
