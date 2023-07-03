@@ -1,23 +1,23 @@
 package org.example;
 
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.File;
+import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        String[] lines = new String[] {"Good morning","Good afternoon","Good night" };
-        String path = "c:\\temp\\outSaida.txt";
+        Scanner sc = new Scanner(System.in);
 
-        try (BufferedWriter bw = new BufferedWriter(new FileWriter(path))) { //Acrescentando um segundo parametro true, ele não recriará o arquivo e sim inserir apos as linhas
-            for(String line : lines) {
-                bw.write(line);
-                bw.newLine();
-            }
-        }
-        catch (IOException e ) {
-            e.printStackTrace();
-        }
+        System.out.println("Enter folder path: ");
+        String strPath = sc.nextLine();
 
+        File path = new File(strPath);
+
+        File[] folders = path.listFiles(File::isDirectory);
+        System.out.println("FOLDERS: ");
+
+        for(File folder : folders) {
+            System.out.println(folder);
+        }
+        sc.close();
     }
 }
