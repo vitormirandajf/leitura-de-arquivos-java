@@ -9,6 +9,8 @@ public class Main {
 
         System.out.println("Enter folder path: ");
         String strPath = sc.nextLine();
+        System.out.println("Enter name new subdirectory: ");
+        String strSubdir = sc.nextLine();
 
         File path = new File(strPath);
 
@@ -18,6 +20,10 @@ public class Main {
         for(File file : files) {
             System.out.println(file);
         }
+
+        boolean sucess = new File(strPath + "\\"+strSubdir).mkdir(); /*Cria uma subpasta no diretorio inserido pelo Scanner com o nome inserido pelo usuário*/
+
+        System.out.println("Diretório criado com sucesso! "+sucess);
         sc.close();
     }
 }
