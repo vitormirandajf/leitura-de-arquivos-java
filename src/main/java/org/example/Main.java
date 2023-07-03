@@ -12,11 +12,11 @@ public class Main {
 
         File path = new File(strPath);
 
-        File[] folders = path.listFiles(File::isDirectory);
-        System.out.println("FOLDERS: ");
+        File[] files = path.listFiles(File::isFile);
+        System.out.println("FILES: ");
 
-        for(File folder : folders) {
-            System.out.println(folder);
+        for(File file : files) {
+            System.out.println(file);
         }
         sc.close();
     }
