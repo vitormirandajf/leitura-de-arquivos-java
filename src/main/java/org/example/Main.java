@@ -7,23 +7,16 @@ public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
-        System.out.println("Enter folder path: ");
+        System.out.println("Enter file path: ");
         String strPath = sc.nextLine();
-        System.out.println("Enter name new subdirectory: ");
-        String strSubdir = sc.nextLine();
 
         File path = new File(strPath);
 
-        File[] files = path.listFiles(File::isFile);
-        System.out.println("FILES: ");
+        System.out.println("getPath: "+path.getPath());
+        System.out.println("getParent: "+path.getParent());
+        System.out.println("getName: "+path.getName() );
 
-        for(File file : files) {
-            System.out.println(file);
-        }
-
-        boolean sucess = new File(strPath + "\\"+strSubdir).mkdir(); /*Cria uma subpasta no diretorio inserido pelo Scanner com o nome inserido pelo usuário*/
-
-        System.out.println("Diretório criado com sucesso! "+sucess);
         sc.close();
+
     }
 }
